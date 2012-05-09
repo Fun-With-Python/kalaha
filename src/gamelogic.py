@@ -30,33 +30,80 @@ def translate(place, player):
 		else:
 			return "U"+str(place-1)
 
+side = {
+"D0":1,
+"D1":1,
+"D2":1,
+"D3":1,
+"D4":1,
+"D5":1,
+"U5":2,
+"U4":2, 
+"U3":2, 
+"U2":2, 
+"U1":2, 
+"U0":2,
+}
+
+
+
 player1 = "Player 1"
 player2 = "Player 2"
 while 1:
 	#Player1's turn
-	print("-*-\n")
-	out.output()
-	print("\033[31;42m-*-\033[m \n")
-	inp = safeinputint(player1 + ", please insert a number between 1-6: ")
-	#do something cool
-	position = translate(inp, 1)
-	value = out.score[position]
-	out.score[position] = 0
-	for i in range(value):
-		position = out.next[position]
-		out.score[position] = out.score[position] + 1
+	while 1:
+		print("-*-\n")
+		out.output()
+		print("\033[31;42m-*-\033[m \n")
+		inp = safeinputint(player1 + ", please insert a number between 1-6: ")
+		#do something cool
+		position = translate(7-inp, 1)
+		value = out.score[position]
+		out.score[position] = 0
+		#dirstribute the points
+		for i in range(value):
+			position = out.next[position]
+			out.score[position] = out.score[position] + 1
+		#exit condition for Player1's turn
+		if inp != value:
+			#capturing seeds ?
+			if out.score[position] == 1 and side[position]==1 and out.score[position.replace("D","U")]>0:
+				out.score["R_"] = out.score["R_"] + out.score[position] + out.score[position.replace("D","U")]
+				out.score[position] = 0
+				#opposit house
+				out.score[position.replace("D","U")] = 0
+			break
+	#win condition for Player1
+	if out.score["R_"] > 24:
+		print("Well done, "+player1)
+		break
 
 	#Player2's turn
-	print("\033[31;42m-*-\033[m \n")
-	out.output()
-	print("-*-\n")
-	inp = safeinputint(player2 + ", please insert a number between 1-6: ")
-	#do something cool
-	position = translate(inp, 2)
-	value = out.score[position]
-	out.score[position] = 0
-	for i in range(value):
-		position = out.next[position]
-		out.score[position] = out.score[position] + 1
+	while 1:
+		print("\033[31;42m-*-\033[m \n")
+		out.output()
+		print("-*-\n")
+		inp = safeinputint(player2 + ", please insert a number between 1-6: ")
+		#do something cool
+		position = translate(inp, 2)
+		value = out.score[position]
+		out.score[position] = 0
+		#dirstribute the points
+		for i in range(value):
+			position = out.next[position]
+			out.score[position] = out.score[position] + 1
+		#exit condition for Player2's turn
+		if inp != value:
+			#capturing seeds ?
+			if out.score[position] == 1 and side[position]==2 and out.score[position.replace("U","D")]>0:
+				out.score["L_"] = out.score["L_"] + out.score[position] + out.score[position.replace("U","D")]
+				out.score[position] = 0
+				#opposit house
+				out.score[position.replace("U","D")] = 0
+			break
+	#win condition for Player2
+	if out.score["L_"] > 24:
+		print("Well done, "+player2)
+		break
 	
-	
+
