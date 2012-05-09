@@ -46,7 +46,7 @@ while 1:
 		position = out.next[position]
 		out.score[position] = out.score[position] + 1
 
-	#Player1's turn
+	#Player2's turn
 	print("\033[31;42m-*-\033[m \n")
 	out.output()
 	print("-*-\n")
