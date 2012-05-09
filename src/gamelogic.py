@@ -92,5 +92,7 @@ while 1:
 	if out.score["L_"] > out.sph*6:
 		print("Well done, "+player2)
 		break
+
+#bottest
 	
 
