@@ -1,6 +1,7 @@
 #Tempfiles
 *~
 *.swp
+#Binaries
 *.pyc
 __pycache__
 __pycache__/*
