@@ -26,4 +26,10 @@ while 1:
 	out.output()
 	print("\033[31;42m*\033[m")
 	inp = safeinputint(player1 + ", please insert a number between 1-6: ")
+	#do something cool
+	print("\033[31;42m*\033[m")
+	out.output()
+	print("*")
+	inp = safeinputint(player2 + ", please insert a number between 1-6: ")
+	#do something cool
 	
