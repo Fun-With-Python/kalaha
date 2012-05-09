@@ -18,21 +18,23 @@ def output():
 		sfield=sfield.replace(k, convert(v))
 	print(sfield)
 	field.close()
+#seeds per house
+sph = 4
 score = {
 "L_":0,
-"D0":4,
-"D1":4,
-"D2":4,
-"D3":4,
-"D4":4,
-"D5":4,
+"D0":sph,
+"D1":sph,
+"D2":sph,
+"D3":sph,
+"D4":sph,
+"D5":sph,
 "R_":0,
-"U5":4,
-"U4":4, 
-"U3":4, 
-"U2":4, 
-"U1":4, 
-"U0":4, 
+"U5":sph,
+"U4":sph, 
+"U3":sph, 
+"U2":sph, 
+"U1":sph, 
+"U0":sph, 
 }
 
 next = {
@@ -52,3 +54,17 @@ next = {
 "U0":"L_", 
 }
 
+side = {
+"D0":1,
+"D1":1,
+"D2":1,
+"D3":1,
+"D4":1,
+"D5":1,
+"U5":2,
+"U4":2, 
+"U3":2, 
+"U2":2, 
+"U1":2, 
+"U0":2,
+}

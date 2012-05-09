@@ -30,20 +30,7 @@ def translate(place, player):
 		else:
 			return "U"+str(place-1)
 
-side = {
-"D0":1,
-"D1":1,
-"D2":1,
-"D3":1,
-"D4":1,
-"D5":1,
-"U5":2,
-"U4":2, 
-"U3":2, 
-"U2":2, 
-"U1":2, 
-"U0":2,
-}
+
 
 
 
@@ -67,14 +54,14 @@ while 1:
 		#exit condition for Player1's turn
 		if inp != value:
 			#capturing seeds ?
-			if out.score[position] == 1 and side[position]==1 and out.score[position.replace("D","U")]>0:
+			if out.score[position] == 1 and out.side[position]==1 and out.score[position.replace("D","U")]>0:
 				out.score["R_"] = out.score["R_"] + out.score[position] + out.score[position.replace("D","U")]
 				out.score[position] = 0
 				#opposit house
 				out.score[position.replace("D","U")] = 0
 			break
-	#win condition for Player1
-	if out.score["R_"] > 24:
+	#win condition for Player1, a player wins if he/she has more than the half of all possible points
+	if out.score["R_"] > out.sph*6:
 		print("Well done, "+player1)
 		break
 
@@ -95,14 +82,14 @@ while 1:
 		#exit condition for Player2's turn
 		if inp != value:
 			#capturing seeds ?
-			if out.score[position] == 1 and side[position]==2 and out.score[position.replace("U","D")]>0:
+			if out.score[position] == 1 and out.side[position]==2 and out.score[position.replace("U","D")]>0:
 				out.score["L_"] = out.score["L_"] + out.score[position] + out.score[position.replace("U","D")]
 				out.score[position] = 0
 				#opposit house
 				out.score[position.replace("U","D")] = 0
 			break
-	#win condition for Player2
-	if out.score["L_"] > 24:
+	#win condition for Player2, a player wins if he/she has more than the half of all possible points
+	if out.score["L_"] > out.sph*6:
 		print("Well done, "+player2)
 		break
 	
