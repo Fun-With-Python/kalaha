@@ -2,7 +2,7 @@ import outputgametable as out
 #you can also import different bots
 #they only need to have a ask askbot() function which returns an integer between 0-6
 import bot as p1bot
-import bot as p2bot
+import randombot as p2bot
 import sys
 def safeinputint(text):
 	try:
@@ -36,8 +36,8 @@ def translate(place, player):
 
 
 # is playerX a bot?
-p1bot = 0
-p2bot = 1
+isp1bot = 0
+isp2bot = 1
 
 player1 = "Player 1"
 player2 = "Player 2"
@@ -48,8 +48,9 @@ while 1:
 		out.output()
 		print("\033[31;42m-*-\033[m \n")
 		#bot or not?
-		if p1bot:
+		if isp1bot:
 			inp = p1bot.askbot()
+			print ("Bot 1 sowed the seeds from house: "+str(inp))
 		else:
 			inp = safeinputint(player1 + ", please insert a number between 1-6: ")
 		#do something cool
@@ -80,8 +81,9 @@ while 1:
 		out.output()
 		print("-*-\n")
 		#bot or not?
-		if p2bot:
+		if isp2bot:
 			inp = p2bot.askbot()
+			print ("Bot 2 sowed the seeds from house: "+str(inp))
 		else:
 			inp = safeinputint(player2 + ", please insert a number between 1-6: ")
 		position = translate(inp, 2)
