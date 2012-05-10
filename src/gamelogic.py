@@ -47,9 +47,9 @@ def main(isp1bot, isp2bot, player1, player2):
 	while 1:
 		#Player1's turn
 		while 1:
-			print("-*-\n")
+			print("-"+player2+"-\n")
 			out.output()
-			print("\033[31;42m-*-\033[m \n")
+			print("\033[31;42m-"+player1+"-\033[m \n")
 			#bot or not?
 			if isp1bot:
 				inp = bot.askbot()
@@ -80,9 +80,9 @@ def main(isp1bot, isp2bot, player1, player2):
 	
 		#Player2's turn
 		while 1:
-			print("\033[31;42m-*-\033[m \n")
+			print("\033[31;42m-"+player2+"-\033[m \n")
 			out.output()
-			print("-*-\n")
+			print("-"+player1+"-\n")
 			#bot or not?
 			if isp2bot:
 				inp = bot.askbot()
