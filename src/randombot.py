@@ -1,9 +1,9 @@
 import random
 import time
-
-name = "RandomBot"
+	
 def init(pnumber):
-	name = name + " " + str(pnumber)
+	global name
+	name = "RandomBot " + str(pnumber)
 
 def ask():
 	random.seed(time.clock())

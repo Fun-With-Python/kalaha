@@ -24,8 +24,8 @@ def translate(place, player):
 #player2 = "Player 2"
 
 def main():
-	p1.init()
-	p2.init()
+	p1.init(1)
+	p2.init(2)
 	while 1:
 		#Player1's turn
 		while 1:

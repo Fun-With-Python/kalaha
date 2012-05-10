@@ -1,6 +1,5 @@
 import sys
 
-name = "Player"
 def safeinputint(text):
 	try:
 		inp = int(input(text))
@@ -21,6 +20,7 @@ def safeinputint(text):
 		return inp
 
 def init(pnumber):
+	global name
 	name = input("Input name for Player "+str(pnumber)+": ")
 
 def ask():
