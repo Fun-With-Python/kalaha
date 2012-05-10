@@ -34,15 +34,15 @@ def translate(place, player):
 		else:
 			return "U"+str(place-1)
 
+## is playerX a bot?
+#isp1bot = 0
+#isp2bot = 1
+#
+#player1 = "Player 1"
+#player2 = "Player 2"
 
-# is playerX a bot?
-isp1bot = 0
-isp2bot = 1
+def main(isp1bot, isp2bot, player1, player2):
 
-player1 = "Player 1"
-player2 = "Player 2"
-
-def main(): 
 	while 1:
 		#Player1's turn
 		while 1:
