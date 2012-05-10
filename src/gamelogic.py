@@ -29,15 +29,9 @@ def main():
 	while 1:
 		#Player1's turn
 		while 1:
-<<<<<<< HEAD
-			print("-"+player2+"-\n")
-			out.output()
-			print("\033[31;42m-"+player1+"-\033[m \n")
-=======
 			print("-"+str(p2.name)+"-\n")
 			out.output()
 			print("\033[31;42m-"+str(p1.name)+"-\033[m \n")
->>>>>>> modular
 			#bot or not?
 			inp = p1.ask()
 			#do something cool
@@ -64,15 +58,9 @@ def main():
 	
 		#Player2's turn
 		while 1:
-<<<<<<< HEAD
-			print("\033[31;42m-"+player2+"-\033[m \n")
-			out.output()
-			print("-"+player1+"-\n")
-=======
 			print("\033[31;42m-"+str(p2.name)+"-\033[m \n")
 			out.output()
 			print("-"+str(p1.name)+"-\n")
->>>>>>> modular
 			#bot or not?
 			inp = p2.ask()
 			position = translate(inp, 2)
