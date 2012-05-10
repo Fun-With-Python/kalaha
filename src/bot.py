@@ -1,4 +1,4 @@
-def askbot():
+def ask():
 	return 1
 	
 
