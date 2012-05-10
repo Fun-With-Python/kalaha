@@ -1,9 +1,8 @@
 import outputgametable as out
 #you can also import different bots
-#they only need to have a ask ask() function which returns an integer between 0-6
-
-#import bot as p1bot
-import randombot as bot
+#they only need to have a ask() function which returns an integer between 1-6
+import randombot as p1
+import textinputplayer as p2
 import sys
 def safeinputint(text):
 	try:
@@ -42,20 +41,17 @@ def translate(place, player):
 #player1 = "Player 1"
 #player2 = "Player 2"
 
-def main(isp1bot, isp2bot, player1, player2):
-
+def main():
+	p1.init()
+	p2.init()
 	while 1:
 		#Player1's turn
 		while 1:
-			print("-*-\n")
+			print("-"+str(p2.name)+"-\n")
 			out.output()
-			print("\033[31;42m-*-\033[m \n")
+			print("\033[31;42m-"+str(p2.name)+"-\033[m \n")
 			#bot or not?
-			if isp1bot:
-				inp = bot.ask()
-				print ("Bot 1 sowed the seeds from house: "+str(inp))
-			else:
-				inp = safeinputint(player1 + ", please insert a number between 1-6: ")
+			inp = p1.ask()
 			#do something cool
 			position = translate(7-inp, 1)
 			value = out.score[position]
@@ -75,7 +71,7 @@ def main(isp1bot, isp2bot, player1, player2):
 				break
 		#win condition for Player1, a player wins if he/she has more than the half of all possible points
 		if out.score["R_"] > out.sph*6:
-			print("Well done, "+player1)
+			print("Well done, "+p1.name)
 			break
 	
 		#Player2's turn

@@ -1,9 +1,6 @@
-import random
-import time
-
-name = "RandomBot"
+name = "Player"
 def init(pnumber):
-	name = name + " " + str(pnumber)
+	name = input("Input name for Player "+str(pnumber)+": ")
 
 def ask():
 	random.seed(time.clock())
