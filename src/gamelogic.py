@@ -1,28 +1,9 @@
 import outputgametable as out
 #you can also import different bots
-#they only need to have a ask askbot() function which returns an integer between 0-6
-
-#import bot as p1bot
-import randombot as bot
+#they only need to have a init(string) and a ask() function which returns an integer between 1-6
+import randombot as p1
+import textinputplayer as p2
 import sys
-def safeinputint(text):
-	try:
-		inp = int(input(text))
-	except ValueError:
-		print("Couldn\'t convert to Integer")
-		return safeinputint(text)
-	except KeyboardInterrupt:
-		print("\n  ^C detected, terminating...")
-		sys.exit()
-	except EOFError:
-		print("\n  ^D detected, terminating...")
-		sys.exit()
-	
-	if inp < 1 or inp > 6:
-		print ("Out of range (1 - 6)")
-		return safeinputint(text)
-	else:
-		return inp
 
 #place - int between 1-6
 #player - int between 1-2
@@ -42,20 +23,23 @@ def translate(place, player):
 #player1 = "Player 1"
 #player2 = "Player 2"
 
-def main(isp1bot, isp2bot, player1, player2):
-
+def main():
+	p1.init()
+	p2.init()
 	while 1:
 		#Player1's turn
 		while 1:
+<<<<<<< HEAD
 			print("-"+player2+"-\n")
 			out.output()
 			print("\033[31;42m-"+player1+"-\033[m \n")
+=======
+			print("-"+str(p2.name)+"-\n")
+			out.output()
+			print("\033[31;42m-"+str(p1.name)+"-\033[m \n")
+>>>>>>> modular
 			#bot or not?
-			if isp1bot:
-				inp = bot.askbot()
-				print ("Bot 1 sowed the seeds from house: "+str(inp))
-			else:
-				inp = safeinputint(player1 + ", please insert a number between 1-6: ")
+			inp = p1.ask()
 			#do something cool
 			position = translate(7-inp, 1)
 			value = out.score[position]
@@ -75,20 +59,22 @@ def main(isp1bot, isp2bot, player1, player2):
 				break
 		#win condition for Player1, a player wins if he/she has more than the half of all possible points
 		if out.score["R_"] > out.sph*6:
-			print("Well done, "+player1)
+			print("Well done, "+p1.name)
 			break
 	
 		#Player2's turn
 		while 1:
+<<<<<<< HEAD
 			print("\033[31;42m-"+player2+"-\033[m \n")
 			out.output()
 			print("-"+player1+"-\n")
+=======
+			print("\033[31;42m-"+str(p2.name)+"-\033[m \n")
+			out.output()
+			print("-"+str(p1.name)+"-\n")
+>>>>>>> modular
 			#bot or not?
-			if isp2bot:
-				inp = bot.askbot()
-				print ("Bot 2 sowed the seeds from house: "+str(inp))
-			else:
-				inp = safeinputint(player2 + ", please insert a number between 1-6: ")
+			inp = p2.ask()
 			position = translate(inp, 2)
 			value = out.score[position]
 			out.score[position] = 0
@@ -107,7 +93,6 @@ def main(isp1bot, isp2bot, player1, player2):
 				break
 		#win condition for Player2, a player wins if he/she has more than the half of all possible points
 		if out.score["L_"] > out.sph*6:
-			print("Well done, "+player2)
+			print("Well done, "+p2.name)
 			break
-	
-#bottest
+main()
