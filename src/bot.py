@@ -1,6 +1,7 @@
-name = "Bot"
+
 def init(pnumber):
-	continue
+	global name
+	name = "Bot " + str(pnumber)
 
 def ask():
 	return 1
